@@ -1,0 +1,32 @@
+server:
+  port: 8081
+  servlet:
+    context-path: /
+
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://10.19.36.209:15432/dictdb?binaryTransfer=False&forceBinary=False&reWriteBatchedInserts=true
+    username: ucr_dict
+    password: ucr_dict@2022
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+    serialization:
+      write-dates-as-timestamps: false
+
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    auto-mapping-behavior: full
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath*:mapper/**/*Mapper.xml
+  global-config:
+    # �߼�ɾ������
+    db-config:
+      # ɾ��ǰ
+      logic-not-delete-value: 1
+      # ɾ����
+      logic-delete-value: 0
+
